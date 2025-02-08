@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from "@/public/icons/ahlussuffalogo.png"
+import logo from "@/public/icons/ahlussuffalogo1.png"
 import Image from 'next/image'
 import { FaInstagram } from "react-icons/fa6";
 import { FaFacebookF } from "react-icons/fa";
@@ -19,9 +19,9 @@ const Footer = () => {
             <p className='mt-4 text-white'>Ahlussufla travelling on the right way to forge potential products by conducting effective trainings and developmenta bootcamps</p>
 
             <div className='flex gap-4 mt-6'>
-                <Link data-aos='fade-up' data-aos-duration='400' href='/' className='bg-white p-2 text-green-900 rounded'><FaFacebookF size={15} className=''/></Link>
-                <Link data-aos='fade-up' data-aos-duration='400'data-aos-delay='100' href='/'  className='bg-white p-2 text-green-900 rounded'><FaInstagram size={15} className=''/></Link>
-                <Link data-aos='fade-up' data-aos-duration='400'data-aos-delay='300' href='/'  className='bg-white p-2 text-green-900 rounded'><FaYoutube size={15} className=''/></Link>
+                <Link data-aos='fade-up' data-aos-duration='400' href='/https://www.facebook.com/profile.php?id=100014534434979' className='bg-white p-2 text-green-900 rounded'><FaFacebookF size={15} className=''/></Link>
+                <Link data-aos='fade-up' data-aos-duration='400'data-aos-delay='100' href='/https://www.instagram.com/ahlussuffadars/'  className='bg-white p-2 text-green-900 rounded'><FaInstagram size={15} className=''/></Link>
+                <Link data-aos='fade-up' data-aos-duration='400'data-aos-delay='300' href='/https://www.youtube.com/@ahlussuffadars'  className='bg-white p-2 text-green-900 rounded'><FaYoutube size={15} className=''/></Link>
                 <Link data-aos='fade-up' data-aos-duration='400'data-aos-delay='500' href='/'  className='bg-white p-2 text-green-900 rounded'><FaXTwitter size={15} className=''/></Link>
             </div> 
         </div>
@@ -30,10 +30,10 @@ const Footer = () => {
             <h1 className='text-white text-xl font-bold'>Quick Links</h1>
             <ul className='mt-4 flex flex-col gap-4'>
                 <li data-aos='fade-right' data-aos-delay='600' data-aos-duration='400' className='hover:text-green-600 transition-all duration-200 flex gap-2 items-center'><FaRegArrowAltCircleRight/><Link href='/'>Home</Link></li>
-                <li data-aos='fade-right' data-aos-delay='700' data-aos-duration='400' className='hover:text-green-600 transition-all duration-200 flex gap-2 items-center'><FaRegArrowAltCircleRight/><Link href='/'>Program</Link></li>
-                <li data-aos='fade-right' data-aos-delay='800' data-aos-duration='400' className='hover:text-green-600 transition-all duration-200 flex gap-2 items-center'><FaRegArrowAltCircleRight/><Link href='/'>Academics</Link></li>
-                <li data-aos='fade-right' data-aos-delay='900' data-aos-duration='400' className='hover:text-green-600 transition-all duration-200 flex gap-2 items-center'><FaRegArrowAltCircleRight/><Link href='/'>Contact</Link></li>
-                <li data-aos='fade-right' data-aos-delay='1000' data-aos-duration='400' className='hover:text-green-600 transition-all duration-200 flex gap-2 items-center'><FaRegArrowAltCircleRight/><Link href='/'>About</Link></li>
+                <li data-aos='fade-right' data-aos-delay='700' data-aos-duration='400' className='hover:text-green-600 transition-all duration-200 flex gap-2 items-center'><FaRegArrowAltCircleRight/><Link href='/about'>About</Link></li>
+                <li data-aos='fade-right' data-aos-delay='800' data-aos-duration='400' className='hover:text-green-600 transition-all duration-200 flex gap-2 items-center'><FaRegArrowAltCircleRight/><Link href='/'>Program</Link></li>
+                <li data-aos='fade-right' data-aos-delay='900' data-aos-duration='400' className='hover:text-green-600 transition-all duration-200 flex gap-2 items-center'><FaRegArrowAltCircleRight/><Link href='/'>Academics</Link></li>
+                <li data-aos='fade-right' data-aos-delay='1000' data-aos-duration='400' className='hover:text-green-600 transition-all duration-200 flex gap-2 items-center'><FaRegArrowAltCircleRight/><Link href='/'>Contact</Link></li>
             </ul>
         </div>
 
