@@ -2,15 +2,7 @@ import React, { useEffect, useState } from 'react'
 import bgImage from '@/public/icons/bg.jpg'
 import Image from 'next/image'
 import Link from 'next/link'
-import pray from '@/public/images/pray.jpg'
-import { FaArrowRight } from "react-icons/fa";
 import { raleway } from '@/app/font'
-// import {Swiper, SwiperSlide} from 'swiper/react'
-// import { Autoplay, EffectFade } from "swiper/modules";
-// import 'swiper/css'
-// import "swiper/css/effect-fade"
-
-
 
 const Hero = () => {
     const taglines = [

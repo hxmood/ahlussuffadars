@@ -158,7 +158,7 @@ export default function Home() {
             <p className="text-gray-600">Muhammad Arshad Nurani Kamil saqafi</p>
             <p className="text-gray-800 py-5">With the blessings of the venerable Ustad Sultan ul-Ulama Kanthapuram and Ustad Abdul Hakeem Azhari, the revered Ustad Arshad ms as hift in the learning opportunities offered to students, providing them with the means to enhance their knowledge and skills through an insightful and comprehensive curriculum tailored to their needs es offered to students, providing them with the means to enhance their knowledge and skills through an insightful and comprehensive curriculum tailored to their needs.</p>
             <button className=" relative bg-green-800 px-4 py-3 text-white rounded-md w-fit flex items-center font-semibold shadow-md hover:-translate-y-2 transition duration-500 hover:shadow-xl">
-              <Link className="mr-2" href="/">Know more</Link>
+              <Link className="mr-2" href="/about">Know more</Link>
               <FaArrowRight/>
             </button>
           </div>

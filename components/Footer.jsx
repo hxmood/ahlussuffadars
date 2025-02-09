@@ -13,15 +13,17 @@ import Link from 'next/link';
 
 const Footer = () => {
   return (
+    <div className='w-full'>
+
     <div className='w-full bg-green-900 py-20 grid lg:grid-cols-3 gap-5 px-5 md:px-14 lg:px-44 place-content-center'> 
         <div className=''>
             <Image src={logo} width={80} className="" alt='logo'/>
             <p className='mt-4 text-white'>Ahlussufla travelling on the right way to forge potential products by conducting effective trainings and developmenta bootcamps</p>
 
             <div className='flex gap-4 mt-6'>
-                <Link data-aos='fade-up' data-aos-duration='400' href='/https://www.facebook.com/profile.php?id=100014534434979' className='bg-white p-2 text-green-900 rounded'><FaFacebookF size={15} className=''/></Link>
-                <Link data-aos='fade-up' data-aos-duration='400'data-aos-delay='100' href='/https://www.instagram.com/ahlussuffadars/'  className='bg-white p-2 text-green-900 rounded'><FaInstagram size={15} className=''/></Link>
-                <Link data-aos='fade-up' data-aos-duration='400'data-aos-delay='300' href='/https://www.youtube.com/@ahlussuffadars'  className='bg-white p-2 text-green-900 rounded'><FaYoutube size={15} className=''/></Link>
+                <Link data-aos='fade-up' data-aos-duration='400' href='https://www.facebook.com/profile.php?id=100014534434979' className='bg-white p-2 text-green-900 rounded'><FaFacebookF size={15} className=''/></Link>
+                <Link data-aos='fade-up' data-aos-duration='400'data-aos-delay='100' href='https://www.instagram.com/ahlussuffadars/'  className='bg-white p-2 text-green-900 rounded'><FaInstagram size={15} className=''/></Link>
+                <Link data-aos='fade-up' data-aos-duration='400'data-aos-delay='300' href='https://www.youtube.com/@ahlussuffadars'  className='bg-white p-2 text-green-900 rounded'><FaYoutube size={15} className=''/></Link>
                 <Link data-aos='fade-up' data-aos-duration='400'data-aos-delay='500' href='/'  className='bg-white p-2 text-green-900 rounded'><FaXTwitter size={15} className=''/></Link>
             </div> 
         </div>
@@ -50,17 +52,21 @@ const Footer = () => {
             <div className='mt-6'>
                 <div className='flex items-center gap-2 text-white'>
                     <CiMail className='text-lg'/>
-                    <p>mhdibnhameed@gmail.com</p>
+                    <p>ahlussuffa.igs@gmail.com</p>
                 </div>
 
-                <div className='flex items-center gap-2 text-white'>
+                <div className='flex gap-2 text-white'>
                     <FaPhoneAlt className='text-lg'/>
-                    <p>8281796320</p>
+                    <p>+91 9746431108</p>
                 </div>
             </div>
             </div>
 
         </div>
+    </div>
+    <div className='bg-green-800 text-center py-4'>
+        <h1 className=' text-gray-300 '>&copy; Ahlussuffa Institute of Integrated Studies</h1>        
+    </div>
     </div>
   )
 }
