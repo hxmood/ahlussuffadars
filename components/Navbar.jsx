@@ -34,6 +34,9 @@ const Navbar = () => {
             <Link className='hover:text-green-600 transition-all duration-200' href="/">Programs</Link>
             <Link className='hover:text-green-600 transition-all duration-200' href="/">Academics</Link>
             <Link className='hover:text-green-600 transition-all duration-200' href="/">Contact</Link>
+            <button className='bg-green-800 text-white rounded-md lg:text-lg px-3 py-2'>
+              <Link href="https://docs.google.com/forms/d/1NpAzRU3ipYvOvLeSPMMWH9EJ-OIanyVbW8GdW7MRra8/viewform?edit_requested=true">Admission</Link>
+            </button>
         </div>
 
         {/* mobile responsive navbar */}
@@ -76,6 +79,9 @@ const Navbar = () => {
                   <FaArrowRight className='text-green-800'/>
                   <h2>Conract</h2>
                 </Link>
+                <button className='bg-green-800 text-white rounded-md lg:text-lg px-3 py-2 mt-5'>
+                  <Link href="https://docs.google.com/forms/d/1NpAzRU3ipYvOvLeSPMMWH9EJ-OIanyVbW8GdW7MRra8/viewform?edit_requested=true">Admission</Link>
+                </button>
               </div>
               
             </div>

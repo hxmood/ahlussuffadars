@@ -76,7 +76,7 @@ const Hero = () => {
                     {taglines[currentIndex].subs}
                 </p>
                 <button className='relative mt-4 bg-green-900 text-white rounded-md lg:text-lg px-4 py-3 font-semibold hover:-translate-y-2 transition duration-500'>
-                    <Link href="/about">Know Us</Link>
+                    <Link href="https://docs.google.com/forms/d/1NpAzRU3ipYvOvLeSPMMWH9EJ-OIanyVbW8GdW7MRra8/viewform?edit_requested=true">Get an admission</Link>
                 </button>
             </div>
         </div>
