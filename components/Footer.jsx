@@ -44,9 +44,9 @@ const Footer = () => {
             <h1 className='text-white font-bold text-xl'>Get in touch</h1>
             <div className='mt-4'>
                 <h2 className='text-white text-lg font-semibold'>Ahlussuffa integrated studies</h2>
-                <p className='text-gray-300'>Shuhada Maqam, Thathoor, Mavoor</p>
-                <p className='text-gray-300'>Pazhur(Po) Kozhikode, Kerala</p>
-                <p className='text-gray-300'>Kerala Pin: 6546865</p>
+                <p className='text-gray-300'>Parappram, Pinarayi</p>
+                <p className='text-gray-300'>Kannur, Kerala</p>
+                {/* <p className='text-gray-300'>Kerala Pin: 6546865</p> */}
             </div>
 
             <div className='mt-6'>

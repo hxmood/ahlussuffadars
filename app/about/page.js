@@ -2,7 +2,7 @@
 import Navbar2 from '@/components/Navbar2'
 import Image from 'next/image'
 import React, { useEffect } from 'react'
-import thathoor from '@/public/images/thathur.jpg'
+import about from '@/public/images/about.jpg'
 import Footer from '@/components/Footer'
 import usthad from '@/public/images/usthad.png'
 import usthad2 from "@/public/images/usthad2.png"
@@ -41,7 +41,7 @@ const page = () => {
 
                 </div>
                 <div data-aos='fade-left' data-aos-duration='600' className='basis-1/2 order-1 lg:order-2'>
-                    <Image src={thathoor} width={600} alt='' className='rounded-lg shadow-lg object-cover hover:scale-105 transition duration-500 hover:shadow-xl'/>
+                    <Image src={about} width={600} alt='' className='rounded-lg shadow-lg object-cover hover:scale-105 transition duration-500 hover:shadow-xl'/>
                 </div>
             </div>
         </div>
@@ -80,7 +80,7 @@ const page = () => {
             <h1 className={`text-3xl lg:text-4xl font-extrabold text-green-800 text-center ${raleway.className}`}>Our faculties</h1>
                 <div data-aos='fade-up' data-aos-duration='600' className='flex gap-4 p-4 border rounded-xl shadow-md mt-12 bg-[#fafafa]'>
                     <div className='basis-2/6'>
-                        <Image src={usthad} width={130} alt='' className='object-fit rounded-lg hover:scale-105 transition-all duration-300'/>
+                        <Image src={usthad} width={130} alt='image of faculties' className='object-fit rounded-lg hover:scale-105 transition-all duration-300'/>
                     </div>
                     <div className='basis-4/6 flex flex-col justify-center'>
                         <h1 className={`text-2xl lg:text-3xl text-green-800 font-extrabold ${raleway.className}`}>Muhammad Arshad Nurani Kamil Saqafi</h1>
@@ -93,7 +93,7 @@ const page = () => {
             <div className='grid lg:grid-cols-2 gap-6 mt-6 lg:mt-12'>
                 <div data-aos='fade-up' data-aos-duration='600'  data-aos-delay='200' className='flex gap-4 p-4  border rounded-xl shadow-md bg-[#fafafa]'>
                     <div className='basis-2/6'>
-                        <Image src={usthad2} width={130} alt='' className='object-fit rounded-lg hover:scale-105 transition-all duration-300'/>
+                        <Image src={usthad2} width={130} alt='image of faculties' className='object-fit rounded-lg hover:scale-105 transition-all duration-300'/>
                     </div>
                     <div className='basis-4/6 flex flex-col justify-center'>
                         <h1 className={`text-2xl text-green-800 font-bold ${raleway.className}`}>Muhammad Ali Nurani Saqafi</h1>
@@ -102,7 +102,7 @@ const page = () => {
 
                 <div data-aos='fade-up' data-aos-duration='600'  data-aos-delay='400' className='flex gap-4 p-4 border rounded-xl shadow-md bg-[#fafafa]'>
                     <div className='basis-2/6'>
-                        <Image src={usthad3} width={130} alt='' className='object-fit rounded-lg hover:scale-105 transition-all duration-300'/>
+                        <Image src={usthad3} width={130} alt='image of faculties' className='object-fit rounded-lg hover:scale-105 transition-all duration-300'/>
                     </div>
                     <div className='basis-4/6 flex flex-col justify-center pr-6'>
                         <h1 className={`text-2xl text-green-800 font-bold ${raleway.className}`}>Hafiz Muhammad Umar Saqafi</h1>
@@ -111,7 +111,7 @@ const page = () => {
 
                 <div data-aos='fade-up' data-aos-duration='600'  data-aos-delay='600' className='flex gap-4 p-4 border rounded-xl shadow-md bg-[#fafafa]'>
                     <div className='basis-2/6'>
-                        <Image src={usthad4} width={130} alt='' className='object-fit rounded-lg hover:scale-105 transition-all duration-300'/>
+                        <Image src={usthad4} width={130} alt='image of faculties' className='object-fit rounded-lg hover:scale-105 transition-all duration-300'/>
                     </div>
                     <div className='basis-4/6 flex flex-col justify-center'>
                         <h1 className={`text-2xl text-green-800 font-bold ${raleway.className}`}>Hafiz Faris Manzari</h1>
@@ -120,7 +120,7 @@ const page = () => {
 
                 <div data-aos='fade-up' data-aos-duration='600'  data-aos-delay='800' className='flex gap-4 p-4 border rounded-xl shadow-md bg-[#fafafa]'>
                     <div className='basis-2/6'>
-                        <Image src={sir} width={130} alt='' className='object-fit rounded-lg hover:scale-105 transition-all duration-300'/>
+                        <Image src={sir} width={130} alt='image of faculties' className='object-fit rounded-lg hover:scale-105 transition-all duration-300'/>
                     </div>
                     <div className='basis-4/6 flex flex-col justify-center pr-6'>
                         <h1 className={`text-2xl text-green-800 font-bold ${raleway.className}`}>Ameer MN</h1>

@@ -2,9 +2,9 @@
 import Hero from "@/components/Hero";
 import Image from "next/image";
 import Link from "next/link";
-import code from '@/public/images/code.jpg';
-import quran from '@/public/images/quran.jpg'
-import library from '@/public/images/library.jpg'
+import programming from '@/public/images/programming.png';
+import quran from '@/public/images/quran.png'
+import library from '@/public/images/library.png'
 import usthad from '@/public/images/usthad.jpg'
 import { FaArrowRight } from "react-icons/fa";
 import Footer from "@/components/Footer";
@@ -18,7 +18,7 @@ import { FaGraduationCap } from "react-icons/fa6";
 import { SlBookOpen } from "react-icons/sl";
 import { SiBookstack } from "react-icons/si";
 import { PiStudent } from "react-icons/pi";
-import thathur from '@/public/images/thathur.jpg'
+import about from '@/public/images/about.jpg'
 import dynamic from "next/dynamic";
 import bg from '@/public/icons/bg.jpg'
 
@@ -38,8 +38,11 @@ export default function Home() {
     <div>
       <Navbar/>
       <Hero/>
-      <div className="h-screen w-full bg-transparent"></div>
-      <div className="absolute z-20">
+
+      {/* About Ahlussuffa */}
+
+      <div className="h-screen w-screen bg-transparent"></div>
+      <div className="absolute z-20 overflow-x-hidden">
 
       <div className='py-24 w-full px-5 md:px-14 bg-white flex flex-col-reverse lg:px-40 lg:flex-row lg:items-center lg:justify-center gap-10 lg:gap-6'>
             <div className='basis-1/2 h-full flex flex-col text-justify justify-center relative'>
@@ -54,7 +57,7 @@ export default function Home() {
             </div>
 
             <div className='basis-1/2 h-full flex items-center justify-center' data-aos="fade-left" data-aos-delay="100">
-                <Image src={thathur} width={550} alt='image of a masjid' className='rounded-lg hover:scale-105 transition-all duration-700  shadow-lg hover:shadow-2xl'/>
+                <Image src={about} width={550} alt='image of a masjid' className='rounded-lg hover:scale-105 transition-all duration-700  shadow-lg hover:shadow-2xl'/>
             </div>
 
         </div>
@@ -65,14 +68,14 @@ export default function Home() {
         <Image src={pattern} width={370} alt="unkown" className="absolute top-0 right-0"/>
         <h1 data-aos='fade-left' className={`relative text-3xl lg:text-4xl font-bold text-green-900 text-center ${raleway.className}`}>Our programs</h1>
 
-        <div className="relative w-full mx-auto px-5 md:px-12 min-w-max lg:px-44 mt-16 grid lg:grid-cols-3 place-content-center content-center gap-5 lg:gap-2">
+        <div className="relative w-full px-5 md:px-12 lg:px-44 mt-16 grid lg:grid-cols-3 place-content-center content-center gap-5 lg:gap-2">
           <div data-aos='fade-up' data-aos-delay='200' data-aos-duration="500" className="relative border bg-white border-green-600 rounded-xl overflow-hidden max-w-sm h-auto">
-            <div className="p-4">
-              <Image src={library} alt="sdlfak" className="object-cover w-full h-56 rounded-xl" />
+            <div className="p-6 flex items-center justify-center">
+              <Image src={library} alt="sdlfak" className="object-cover w-36 rounded-xl" />
             </div>
 
-            <div className="px-8 py-6 mb-4 relative">
-              <h2 className="text-xl font-bold text-gray-900">Baithul hikma</h2>
+            <div className="px-8 mb-4 relative">
+              <h2 className="text-xl font-bold text-center text-gray-900">Baithul hikma</h2>
               <p className="text-gray-600 mt-2"> Exhibiting as unrivalled knowledge centre {'Baitul Hikma Library'} is the main attraction of Ahlussufa Dars. contained with a large collection of kithabs and books on different subjects and languages, It has provided with extensive Mutala and reading facilities  </p>
               <Link href="/" className="text-green-600 font-semibold mt-4 inline-block">
                 &gt; Learn more
@@ -81,11 +84,11 @@ export default function Home() {
           </div>
 
           <div data-aos='fade-up' data-aos-delay='400' data-aos-duration="500" className="relative border bg-white border-green-600 rounded-xl overflow-hidden max-w-sm">
-            <div className="p-4">
-              <Image src={quran} alt="sdlfak" className="w-full h-56 object-cover rounded-xl" />
+            <div className="p-6 flex items-center justify-center">
+              <Image src={quran} alt="sdlfak" className="w-36 object-cover rounded-xl" />
             </div>
-            <div className="px-8 py-6 mb-4">
-              <h2 className="text-xl font-bold text-gray-900">Suffathul huffaz</h2>
+            <div className="px-8 mb-4">
+              <h2 className="text-xl font-bold text-center text-gray-900">Suffathul huffaz</h2>
               <p className="text-gray-600 mt-2"> Suffathul huffaz is an academy established for Quranic studies and staying in the hearts of more than 30 {`mutha'allim`} hafilis of Ahlussuffa. The aim is to inculcate ahlul of the noble quran and demanded by the society by providing opportunities for hifz daura and special qirath training classes. </p>
               <Link href="/" className="text-green-600 font-semibold mt-4 inline-block">
                 &gt; Learn more
@@ -94,11 +97,11 @@ export default function Home() {
           </div>
 
           <div data-aos='fade-up' data-aos-delay='600' data-aos-duration="500" className="relative border bg-white border-green-600 rounded-xl overflow-hidden max-w-sm">
-            <div className="p-4">
-              <Image src={code} alt="sdlfak" className="w-full h-56 object-cover rounded-xl" />
+            <div className="p-6 flex items-center justify-center">
+              <Image src={programming} alt="sdlfak" className="w-36 object-cover rounded-xl" />
             </div>
-            <div className="px-8 py-6 mb-4">
-              <h2 className="text-xl font-bold text-gray-900">Suffa  Digi kiosk</h2>
+            <div className="px-8  mb-6">
+              <h2 className="text-xl font-bold text-gray-900 text-center">Suffa  Digi kiosk</h2>
               <p className="text-gray-600 mt-2"> Suffa Digi kiosk is a project initiated with the aim of moding the learned community to understand and address the possibilities of deeni {`da'wath`} in this fast moving modern age. Apart from that, Digi world is molding students who excel in different fields like web designing, graphic designing etc.   </p>
               <Link href="/" className="text-green-600 font-semibold mt-4 inline-block">
                 &gt; Learn more

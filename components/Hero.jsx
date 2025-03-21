@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import bgImage from '@/public/icons/bg.jpg'
+// import bgImage from '@/public/icons/bg.jpg'
 import Image from 'next/image'
 import Link from 'next/link'
 import { raleway } from '@/app/font'
@@ -8,39 +8,42 @@ const Hero = () => {
     const taglines = [
         {
             main: "Empowering Minds, Enriching Souls ",
-            subs: [
-              "Fostering a deep connection between knowledge and spirituality."
-            ]
-          },
+            subs: "Fostering a deep connection between knowledge and spirituality.",
+            bgImage: "/images/bg1.png"
+        },
+
           {
             main: "Shaping Tomorrow with Islamic Values",
-            subs: [
-              "Equipping students with knowledge to serve their communities."
-            ]
+            subs: "Equipping students with knowledge to serve their communities.",
+            bgImage: "/images/bg2.png"
           },
+
           {
             main: "Where Tradition Meets Modern Education",
-            subs: [
-              "A learning environment that respects the past and shapes the future"
-            ]
+            subs: "A learning environment that respects the past and shapes the future",
+            bgImage: "/images/bg3.png"
           },
+
           {
             main: "Guided by Faith, Strengthened by Knowledge",
-            subs: [
-              "Empowering students with wisdom to navigate the modern world."
-            ]
+            subs: "Empowering students with wisdom to navigate the modern world.",
+            bgImage: "/images/bg4.png"
           }
       ];
 
       const [currentIndex, setCurrentIndex] = useState(0);
       const [isVisible, setIsVisible] = useState(true);
       const [subVisible, setSubVisible] = useState(true);
+      const images = [taglines[0].bgImage, taglines[1].bgImage, taglines[2].bgImage, taglines[3].bgImage]; // Array of images
+      const [currentImageIndex, setCurrentImageIndex] = useState(0);
+      const [imageVisible, setImageVisible] = useState(true);
 
       useEffect(() => {
         const intervalId = setInterval(() => {
           // Start fade out animation
           setIsVisible(false);
           setSubVisible(false);
+          setImageVisible(false);
           
           // Change content after fade out
           setTimeout(() => {
@@ -48,6 +51,7 @@ const Hero = () => {
               prevIndex === taglines.length - 1 ? 0 : prevIndex + 1
             );
             setIsVisible(true);
+            setImageVisible(true);
             
             // Stagger sub-tagline appearance
             setTimeout(() => {
@@ -59,12 +63,35 @@ const Hero = () => {
     
         return () => clearInterval(intervalId);
       }, []);
+
+      useEffect(() => {
+        const intervalId = setInterval(() => {
+            // Start fade out animation
+            setImageVisible(false);
+            
+            // Change image after fade out
+            setTimeout(() => {
+                setCurrentImageIndex((prevIndex) => 
+                    prevIndex === images.length - 1 ? 0 : prevIndex + 1
+                );
+                setImageVisible(true); // Fade in new image
+            }, 500); // Duration of fade out
+            
+        }, 5000); // Interval for image change
+
+        return () => clearInterval(intervalId);
+    }, []);
     
     return (
     <div>
         <div className='h-screen w-full fixed overflow-x-hidden'>
         <div className="">
-            <Image src={bgImage} fill alt="background" className="object-cover w-full h-full" />
+            <Image 
+                src={images[currentImageIndex]} 
+                fill 
+                alt="background" 
+                className={`object-cover w-full h-full transition-opacity duration-500 ${imageVisible ? 'opacity-100' : 'opacity-0'}`} 
+            />
         </div>
             <div className="absolute inset-0 bg-black opacity-80"></div>
             <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-5 md:px-12 lg:px-16 mt-6">
