@@ -34,7 +34,7 @@ const Navbar = () => {
             <Link className='hover:text-green-600 transition-all duration-200' href="/">Programs</Link>
             <Link className='hover:text-green-600 transition-all duration-200' href="/">Academics</Link>
             <Link className='hover:text-green-600 transition-all duration-200' href="/">Contact</Link>
-            <button className='bg-green-800 text-white rounded-md lg:text-lg px-3 py-2'>
+            <button className='bg-primary text-white rounded-md lg:text-lg px-3 py-2'>
               <Link href="https://docs.google.com/forms/d/1NpAzRU3ipYvOvLeSPMMWH9EJ-OIanyVbW8GdW7MRra8/viewform?edit_requested=true">Admission</Link>
             </button>
         </div>
@@ -56,30 +56,30 @@ const Navbar = () => {
               </Link>
               <div className='flex flex-col gap-4 text-center py-10 px-14'>
                 <Link href="/" className='text-lg border-b-2 py-2 flex items-center gap-4 duration-150 hover:pl-2 hover:font-bold' onClick={handleClick}>
-                  <FaArrowRight className='text-green-800'/>
+                  <FaArrowRight className='text-primary'/>
                   <h2>Home</h2>
                 </Link>
 
                 <Link href="/about" className='text-lg border-b-2 py-2 flex items-center gap-4 duration-150 hover:pl-2 hover:font-bold' onClick={handleClick}>
-                  <FaArrowRight className='text-green-800'/>
+                  <FaArrowRight className='text-primary'/>
                   <h2>About</h2>
                 </Link>
 
                 <Link href="/" className='text-lg border-b-2 py-2 flex items-center gap-4 duration-150 hover:pl-2 hover:font-bold' onClick={handleClick}>
-                  <FaArrowRight className='text-green-800'/>
+                  <FaArrowRight className='text-primary'/>
                   <h2>Program</h2>
                 </Link>
 
                 <Link href="/" className='text-lg border-b-2 py-2 flex items-center gap-4 duration-150 hover:pl-2 hover:font-bold' onClick={handleClick}>
-                  <FaArrowRight className='text-green-800'/>
-                  <h2>Programs</h2>
+                  <FaArrowRight className='text-primary'/>
+                  <h2>Academics</h2>
                 </Link>
 
                 <Link href="/" className='text-lg border-b-2 py-2 flex items-center gap-4 duration-150 hover:pl-2 hover:font-bold' onClick={handleClick}>
-                  <FaArrowRight className='text-green-800'/>
+                  <FaArrowRight className='text-primary'/>
                   <h2>Conract</h2>
                 </Link>
-                <button className='bg-green-800 text-white rounded-md lg:text-lg px-3 py-2 mt-5'>
+                <button className='bg-primary text-white rounded-md lg:text-lg px-3 py-2 mt-5'>
                   <Link href="https://docs.google.com/forms/d/1NpAzRU3ipYvOvLeSPMMWH9EJ-OIanyVbW8GdW7MRra8/viewform?edit_requested=true">Admission</Link>
                 </button>
               </div>

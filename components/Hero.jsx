@@ -102,7 +102,7 @@ const Hero = () => {
                 <p className={`px-5 mt-4 lg:mt-4 text-gray-300 lg:text-lg transform transition-all duration-700 ${subVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
                     {taglines[currentIndex].subs}
                 </p>
-                <button className='relative mt-4 bg-green-900 text-white rounded-md lg:text-lg px-4 py-3 font-semibold hover:-translate-y-2 transition duration-500'>
+                <button className='relative mt-4 bg-primary text-white rounded-md lg:text-lg px-4 py-3 font-semibold hover:-translate-y-2 transition duration-500'>
                     <Link href="https://docs.google.com/forms/d/1NpAzRU3ipYvOvLeSPMMWH9EJ-OIanyVbW8GdW7MRra8/viewform?edit_requested=true">Get an admission</Link>
                 </button>
             </div>
