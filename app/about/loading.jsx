@@ -1,5 +1,5 @@
 import React from 'react';
-import { raleway } from '../font';
+import { roboto } from '../font';
 import Image from 'next/image';
 import texture from '@/public/icons/texture.png';
 
@@ -18,7 +18,7 @@ export default function Loading() {
             
             <div className="w-24 h-24 border-t-4 border-primary rounded-full animate-spin mb-8"></div>
             
-            <h2 className={`text-2xl text-gray-600 ${raleway.className} font-semibold`}>
+            <h2 className={`text-2xl text-gray-600 ${roboto.className} font-semibold`}>
                 Loading content...
             </h2>
             

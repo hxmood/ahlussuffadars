@@ -1,93 +1,143 @@
 "use client"
-import Image from 'next/image'
-import React, { useEffect, useState } from 'react'
-import logo from "@/public/icons/ahlussuffalogo.png"
-import logo1 from "@/public/icons/ahlussuffalogo1.png"
-import Link from 'next/link'
-import { FaArrowRight } from 'react-icons/fa'
+import React, { useState, useEffect } from 'react';
+import { GraduationCap, Menu, X } from 'lucide-react';
+import Link from 'next/link';
+import Image from 'next/image';
 
 const Navbar = () => {
-  const [dropDown, setDropDown] = useState(false)
-  const [fix, setFix] = useState(false)
-  const handleClick = () => setDropDown(!dropDown)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  useEffect(() => { 
-    const Navfix = () => {
-      if (window.scrollY >= 600) {
-        setFix(true);
-      } else {
-        setFix(false);
-      }
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
     };
-    window.addEventListener("scroll", Navfix);
-  }, [])
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <div className={`w-full flex items-center justify-between px-5 md:px-14 lg:px-28 ${fix ? 'bg-slate-50 py-4 shadow-lg fixed' : 'bg-transparent py-8 absolute'}  z-40  top-0 transition-all duration-300`}>
-        <Link href='/' className='cursor-pointer'>
-          {fix ? <Image src={logo} width={70} alt='logo'/> : <Image src={logo1} width={70} alt='logo'/>}
+    <div className="absolute top-0 left-0 right-0 z-50">
+      <nav className="relative py-8 bg-transparent">
+  <div className="max-w-7xl mx-auto px-4">
+    <div className="flex items-center justify-between">
+      {/* Logo */}
+      <div className="flex items-center space-x-3">
+        <div className="flex relative">
+          <Link href="/" className='w-full relative'>
+            <Image src="/icons/logo2-white.png" width={55} height={35} alt='Ahlussuffa Logo'/>
+          </Link>
+        </div>
+      </div>
+
+      {/* Desktop Menu */}
+      <div className="hidden md:flex items-center space-x-8">
+        <Link
+          href="/" 
+          className="font-semibold text-white hover:text-secondary transition-all duration-300 hover:scale-110"
+        >
+          Home
         </Link>
 
-        <div className={`hidden md:flex items-center justify-center gap-8  font-semibold ${fix ? 'text-black' : 'text-white'} `}>
-            <Link className='hover:text-green-600 transition-all duration-200' href="/">Home</Link>
-            <Link className='hover:text-green-600 transition-all duration-200' href="/about">About</Link>
-            <Link className='hover:text-green-600 transition-all duration-200' href="/">Programs</Link>
-            <Link className='hover:text-green-600 transition-all duration-200' href="/">Academics</Link>
-            <Link className='hover:text-green-600 transition-all duration-200' href="/">Contact</Link>
-            <button className='bg-primary text-white rounded-md lg:text-lg px-3 py-2'>
-              <Link href="https://docs.google.com/forms/d/1NpAzRU3ipYvOvLeSPMMWH9EJ-OIanyVbW8GdW7MRra8/viewform?edit_requested=true">Admission</Link>
-            </button>
-        </div>
-
-        {/* mobile responsive navbar */}
-
-        <div className='md:hidden'>
-            {!dropDown ? 
-              <Image className='cursor-pointer' src={fix ? "/icons/menu.svg" : "/icons/menu-white.svg"} height={40} width={40} alt='something' onClick={handleClick}/> : 
-              <Image className='cursor-pointer' src={fix ? "/icons/close.svg" : "/icons/close-white.svg"} height={40} width={40} alt='something' onClick={handleClick}/>
-            }
+        <Link 
+          href="/about" 
+          className="font-semibold text-white hover:text-secondary transition-all duration-300 hover:scale-110"
+        >
+          About
+        </Link>
         
-          </div>
+        <Link 
+          href="/academics" 
+          className="font-semibold text-white hover:text-secondary transition-all duration-300 hover:scale-110"
+        >
+          Academics
+        </Link>
 
-          {dropDown && (
-            <div className='fixed left-0 top-0 bottom-0 bg-slate-50 shadow-xl z-10 transition-all duration-100 w-8/12' data-aos="fade-right">
-              <Link href="/">
-                <Image src={logo} width={140} className='p-8'/>
-              </Link>
-              <div className='flex flex-col gap-4 text-center py-10 px-14'>
-                <Link href="/" className='text-lg border-b-2 py-2 flex items-center gap-4 duration-150 hover:pl-2 hover:font-bold' onClick={handleClick}>
-                  <FaArrowRight className='text-primary'/>
-                  <h2>Home</h2>
-                </Link>
+        <Link 
+          href="/admission" 
+          className="font-semibold text-white hover:text-secondary transition-all duration-300 hover:scale-110"
+        >
+          Admission
+        </Link>
 
-                <Link href="/about" className='text-lg border-b-2 py-2 flex items-center gap-4 duration-150 hover:pl-2 hover:font-bold' onClick={handleClick}>
-                  <FaArrowRight className='text-primary'/>
-                  <h2>About</h2>
-                </Link>
+        <Link 
+          href="/contact" 
+          className="font-semibold text-white hover:text-secondary transition-all duration-300 hover:scale-110"
+        >
+          Contact
+        </Link>
+        
+        <button className="px-6 py-2 bg-gradient-to-r from-primary to-secondary text-white font-semibold rounded-full hover:shadow-lg hover:scale-105 transition-all duration-300">
+          Apply Now
+        </button>
+      </div>
 
-                <Link href="/" className='text-lg border-b-2 py-2 flex items-center gap-4 duration-150 hover:pl-2 hover:font-bold' onClick={handleClick}>
-                  <FaArrowRight className='text-primary'/>
-                  <h2>Program</h2>
-                </Link>
+      {/* Mobile Menu Button */}
+      <button
+        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+        className="md:hidden p-2 rounded-lg transition-colors text-white hover:bg-white/10"
+        aria-label="Toggle menu"
+      >
+        {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+      </button>
+    </div>
 
-                <Link href="/" className='text-lg border-b-2 py-2 flex items-center gap-4 duration-150 hover:pl-2 hover:font-bold' onClick={handleClick}>
-                  <FaArrowRight className='text-primary'/>
-                  <h2>Academics</h2>
-                </Link>
+    {/* Mobile Menu */}
+    <div className={`md:hidden overflow-hidden transition-all duration-300 ${
+      mobileMenuOpen ? 'max-h-96 mt-4' : 'max-h-0'
+    }`}>
+      <div className="flex flex-col space-y-4 py-4 rounded-lg px-4 bg-white/10 backdrop-blur-md">
+        <Link
+          href="/"
+          onClick={() => setMobileMenuOpen(false)}
+          className="font-semibold py-2 text-white hover:text-secondary transition-colors"
+        >
+          Home
+        </Link>
 
-                <Link href="/" className='text-lg border-b-2 py-2 flex items-center gap-4 duration-150 hover:pl-2 hover:font-bold' onClick={handleClick}>
-                  <FaArrowRight className='text-primary'/>
-                  <h2>Conract</h2>
-                </Link>
-                <button className='bg-primary text-white rounded-md lg:text-lg px-3 py-2 mt-5'>
-                  <Link href="https://docs.google.com/forms/d/1NpAzRU3ipYvOvLeSPMMWH9EJ-OIanyVbW8GdW7MRra8/viewform?edit_requested=true">Admission</Link>
-                </button>
-              </div>
-              
-            </div>
-          )}
+        <Link
+          href="/about"
+          onClick={() => setMobileMenuOpen(false)}
+          className="font-semibold py-2 text-white hover:text-secondary transition-colors"
+        >
+          About
+        </Link>
+        
+        <Link
+          href="/academics"
+          onClick={() => setMobileMenuOpen(false)}
+          className="font-semibold py-2 text-white hover:text-secondary transition-colors"
+        >
+          Academics
+        </Link>
+        
+        <Link
+          href="/admission"
+          onClick={() => setMobileMenuOpen(false)}
+          className="font-semibold py-2 text-white hover:text-secondary transition-colors"
+        >
+          Admission
+        </Link>
+        
+        <Link
+          href="/contact"
+          onClick={() => setMobileMenuOpen(false)}
+          className="font-semibold py-2 text-white hover:text-secondary transition-colors"
+        >
+          Contact
+        </Link>
+        
+        <button className="px-6 py-3 bg-gradient-to-r from-primary to-secondary text-white font-semibold rounded-full hover:shadow-lg transition-all duration-300 w-full">
+          Apply Now
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
     </div>
   )
 }
 
-export default Navbar
+export default Navbar;

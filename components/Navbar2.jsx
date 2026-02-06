@@ -1,88 +1,139 @@
 "use client"
-import Image from 'next/image'
-import React, { useState } from 'react'
-import logo from '@/public/icons/ahlussuffalogo.png'
-import Link from 'next/link'
-import { FaArrowRight } from 'react-icons/fa'
+import React, { useState, useEffect } from 'react';
+import { GraduationCap, Menu, X } from 'lucide-react';
+import Link from 'next/link';
+import Image from 'next/image';
 
 const Navbar2 = () => {
-  const [dropDown, setDropDown] = useState(false)
-  const handleClick = () => setDropDown(!dropDown)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <div className='sticky top-0 w-full flex items-center justify-between px-5 md:px-14 lg:px-28 bg-slate-50 z-30 py-4 shadow-lg'>
-        <Link href='/'>
-            <Image src={logo} width={70} className="" alt='logo'/>
-        </Link>
+    <div className="">
+      <nav className={`w-full relative transition-all duration-300 bg-white shadow-lg py-4 border-b`}>
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="flex items-center justify-between">
+            {/* Logo */}
+            <div className="flex items-center space-x-3">
+              <Link href="/" className="flex items-center justify-center ">
+                <Image src='/icons/logo2.png' alt="Ahlussuffa Logo" width={50} height={50} />
+              </Link>
+            </div>
 
-        <div className='hidden md:flex items-center justify-center gap-6 font-semibold'>
-            <Link className='hover:text-green-600 transition-all duration-200 ' href="/">Home</Link>
-            <Link className='hover:text-green-600 transition-all duration-200 ' href="/about">About</Link>
-            <Link className='hover:text-green-600 transition-all duration-200' href="/">Program</Link>
-            <Link className='hover:text-green-600 transition-all duration-200' href="/">Academics</Link>
-            <Link className='hover:text-green-600 transition-all duration-200' href="/">Contact</Link>
-            <button className='bg-primary text-white rounded-md lg:text-lg px-3 py-2'>
-              <Link href="https://docs.google.com/forms/d/1NpAzRU3ipYvOvLeSPMMWH9EJ-OIanyVbW8GdW7MRra8/viewform?edit_requested=true">Admission</Link>
+            {/* Desktop Menu */}
+            <div className="hidden md:flex items-center space-x-8">
+              <Link
+                href="/" 
+                className="font-semibold transition-all duration-300 hover:scale-110 text-gray-900 hover:text-primary"
+              >
+                Home
+              </Link>
+
+              <Link 
+                href="/about" 
+                className="font-semibold transition-all duration-300 hover:scale-110 text-gray-900 hover:text-primary"
+                >
+                About
+              </Link>
+
+              <Link 
+                href="/academics" 
+                className="font-semibold transition-all duration-300 hover:scale-110 text-gray-900 hover:text-primary"
+              >
+                Academics
+              </Link>
+
+              <Link 
+                href="/admission" 
+                className="font-semibold transition-all duration-300 hover:scale-110 text-gray-900 hover:text-primary"
+              >
+                Admission
+              </Link>
+
+              <Link 
+                href="/contact" 
+                className="font-semibold transition-all duration-300 hover:scale-110 text-gray-900 hover:text-primary"
+              >
+                Contact
+              </Link>
+              <button className="px-6 py-2 bg-gradient-to-r from-primary to-secondary text-white font-semibold rounded-full hover:shadow-lg hover:scale-105 transition-all duration-300">
+                Apply Now
+              </button>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className={`md:hidden p-2 rounded-lg transition-colors text-gray-900 hover:bg-gray-100'
+              }`}
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
-        </div>
-
-        {/* mobile responsive navigation */}
-
-        <div className='md:hidden relative'>
-            {!dropDown ? 
-              <Image className='cursor-pointer' src="/icons/menu.svg" height={40} width={40} alt='something' onClick={handleClick}/> : 
-              <Image className='cursor-pointer' src="/icons/close.svg" height={40} width={40} alt='something' onClick={handleClick}/>
-            }
-        
           </div>
 
-          {dropDown && (
-            <>
-            {/* <div className='absolute top-0 left-0 w-full h-screen bg-black opacity-55 '> */}
-              {/* <Image className='cursor-pointer' src="/icons/close.svg" height={40} width={40} alt='something' onClick={handleClick}/> */}
+          {/* Mobile Menu */}
+          <div className={`md:hidden overflow-hidden absolute right-0 left-0 w-full z-20 transition-all duration-300 ${
+            mobileMenuOpen ? 'max-h-96 mt-4' : 'max-h-0'
+          }`}>
+
+            <div className="flex flex-col space-y-4 py-4 rounded-b-lg lg px-4 bg-white">
+              <Link
+                href="/"
+                onClick={() => setMobileMenuOpen(false)}
+                className="font-semibold py-2 transition-colors text-gray-900 hover:text-primary"
+              >
+                Home
+              </Link>
+
+              <Link
+                href="/about"
+                onClick={() => setMobileMenuOpen(false)}
+                className="font-semibold py-2 transition-colors text-gray-900 hover:text-primary"
+              >
+                About
+              </Link>
+              <Link
+                href="/academics"
+                onClick={() => setMobileMenuOpen(false)}
+                className="font-semibold py-2 transition-colors text-gray-900 hover:text-primary"
+              >
+                Academics
+              </Link>
+              <Link
+                href="/admission"
+                onClick={() => setMobileMenuOpen(false)}
+                className="font-semibold py-2 transition-colors text-gray-900 hover:text-primary"
+              >
+                Admission
+              </Link>
               
-            {/* </div> */}
-            <div className='fixed left-0 top-0 bottom-0 bg-slate-50 shadow-xl z-40 transition-all duration-100 w-8/12' data-aos="fade-right">
-            <Link href="/" className='w-fit'>
-              <Image src={logo} width={140} className='p-8'/>
-            </Link>
-
-              <div className='flex flex-col gap-4 text-center py-10 px-14'>
-                <Link href="/" className='text-lg border-b-2 py-2 flex items-center gap-4 duration-150 hover:pl-2 hover:font-bold' onClick={handleClick}>
-                  <FaArrowRight className='text-primary'/>
-                  <h2>Home</h2>
-                </Link>
-
-                <Link href="/about" className='text-lg border-b-2 py-2 flex items-center gap-4 duration-150 hover:pl-2 hover:font-bold' onClick={handleClick}>
-                  <FaArrowRight className='text-primary'/>
-                  <h2>About</h2>
-                </Link>
-
-                <Link href="/" className='text-lg border-b-2 py-2 flex items-center gap-4 duration-150 hover:pl-2 hover:font-bold' onClick={handleClick}>
-                  <FaArrowRight className='text-primary'/>
-                  <h2>Program</h2>
-                </Link>
-
-                <Link href="/" className='text-lg border-b-2 py-2 flex items-center gap-4 duration-150 hover:pl-2 hover:font-bold' onClick={handleClick}>
-                  <FaArrowRight className='text-primary'/>
-                  <h2>Academics</h2>
-                </Link>
-
-                <Link href="/" className='text-lg border-b-2 py-2 flex items-center gap-4 duration-150 hover:pl-2 hover:font-bold' onClick={handleClick}>
-                  <FaArrowRight className='text-primary'/>
-                  <h2>Conract</h2>
-                </Link>
-
-                <button className='bg-primary text-white rounded-md lg:text-lg px-3 py-2 mt-5'>
-                  <Link href="https://docs.google.com/forms/d/1NpAzRU3ipYvOvLeSPMMWH9EJ-OIanyVbW8GdW7MRra8/viewform?edit_requested=true">Admission</Link>
-                </button>
-              </div>
-              
+              <Link
+                href="/contact"
+                onClick={() => setMobileMenuOpen(false)}
+                className="font-semibold py-2 transition-colors text-gray-900 hover:text-primary"
+              >
+                Contact
+              </Link>
+              <button className="px-6 py-3 bg-gradient-to-r from-primary to-secondary text-white font-semibold rounded-full hover:shadow-lg transition-all duration-300 w-full">
+                Apply Now
+              </button>
             </div>
-          </>
-          )}
+          </div>
+        </div>
+      </nav>
     </div>
   )
 }
 
-export default Navbar2
+export default Navbar2;

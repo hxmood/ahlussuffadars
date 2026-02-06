@@ -1,12 +1,12 @@
+
 import { Nunito } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const nunito = Nunito({
   variable: "--font-nunito",
   subsets: ["latin"],
 });
-
 
 export const metadata = {
   title: "Ahlussuffa",
@@ -14,10 +14,13 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  
   return (
     <html lang="en">
-      <body className={nunito.className}>
+      <body className={`${nunito.className} overflow-x-hidden`}>
         {children}
+        
+        <Footer />
       </body>
     </html>
   );

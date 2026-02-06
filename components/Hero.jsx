@@ -1,118 +1,191 @@
-import React, { useEffect, useState } from 'react'
-// import bgImage from '@/public/icons/bg.jpg'
-import Image from 'next/image'
-import Link from 'next/link'
-import { raleway } from '@/app/font'
+"use client"
+import { roboto } from "@/app/font";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import Link from "next/link";
+import React, { useEffect, useState } from "react";
 
 const Hero = () => {
-    const taglines = [
-        {
-            main: "Empowering Minds, Enriching Souls ",
-            subs: "Fostering a deep connection between knowledge and spirituality.",
-            bgImage: "/images/bg1.png"
-        },
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [countsVisible, setCountsVisible] = useState(false);
 
-          {
-            main: "Shaping Tomorrow with Islamic Values",
-            subs: "Equipping students with knowledge to serve their communities.",
-            bgImage: "/images/bg2.png"
-          },
+  const slides = [
+    {
+      title: "Welcome to Ahlussuffa",
+      tagline: "Empowering minds through Islamic and academic excellence",
+      image: "/images/bg1.png",
+    },
+    {
+      title: "Where Tradition Meets Modern Education",
+      tagline: "Integrated education rooted in authentic Islamic scholarship",
+      image: "/images/bg2.png",
+    },
+    {
+      title: "Academic Excellence",
+      tagline: "Multiple degree pathways for holistic development",
+      image: "/images/bg3.png",
+    },
+    {
+      title: "Building Tomorrow's Leaders",
+      tagline: "Fostering social responsibility and community impact",
+      image: "/images/bg4.png",
+    },
+  ];
 
-          {
-            main: "Where Tradition Meets Modern Education",
-            subs: "A learning environment that respects the past and shapes the future",
-            bgImage: "/images/bg3.png"
-          },
+  const nextSlide = () => {
+    if (!isAnimating) {
+      setIsAnimating(true);
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+      setTimeout(() => setIsAnimating(false), 600);
+    }
+  };
 
-          {
-            main: "Guided by Faith, Strengthened by Knowledge",
-            subs: "Empowering students with wisdom to navigate the modern world.",
-            bgImage: "/images/bg4.png"
-          }
-      ];
+  const prevSlide = () => {
+    if (!isAnimating) {
+      setIsAnimating(true);
+      setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+      setTimeout(() => setIsAnimating(false), 600);
+    }
+  };
 
-      const [currentIndex, setCurrentIndex] = useState(0);
-      const [isVisible, setIsVisible] = useState(true);
-      const [subVisible, setSubVisible] = useState(true);
-      const images = [taglines[0].bgImage, taglines[1].bgImage, taglines[2].bgImage, taglines[3].bgImage]; // Array of images
-      const [currentImageIndex, setCurrentImageIndex] = useState(0);
-      const [imageVisible, setImageVisible] = useState(true);
+  const goToSlide = (index) => {
+    if (!isAnimating && index !== currentSlide) {
+      setIsAnimating(true);
+      setCurrentSlide(index);
+      setTimeout(() => setIsAnimating(false), 600);
+    }
+  };
 
-      useEffect(() => {
-        const intervalId = setInterval(() => {
-          // Start fade out animation
-          setIsVisible(false);
-          setSubVisible(false);
-          setImageVisible(false);
-          
-          // Change content after fade out
-          setTimeout(() => {
-            setCurrentIndex((prevIndex) => 
-              prevIndex === taglines.length - 1 ? 0 : prevIndex + 1
-            );
-            setIsVisible(true);
-            setImageVisible(true);
-            
-            // Stagger sub-tagline appearance
-            setTimeout(() => {
-              setSubVisible(true);
-            }, 200);
-          }, 500);
-          
-        }, 5000 ); // Increased interval to allow for sub-taglines
-    
-        return () => clearInterval(intervalId);
-      }, []);
+  // Auto-slide effect
+  useEffect(() => {
+    const timer = setInterval(() => {
+      nextSlide();
+    }, 3500);
+    return () => clearInterval(timer);
+  }, [currentSlide, isAnimating]); // Added dependencies
 
-      useEffect(() => {
-        const intervalId = setInterval(() => {
-            // Start fade out animation
-            setImageVisible(false);
-            
-            // Change image after fade out
-            setTimeout(() => {
-                setCurrentImageIndex((prevIndex) => 
-                    prevIndex === images.length - 1 ? 0 : prevIndex + 1
-                );
-                setImageVisible(true); // Fade in new image
-            }, 500); // Duration of fade out
-            
-        }, 5000); // Interval for image change
-
-        return () => clearInterval(intervalId);
-    }, []);
-    
-    return (
+ 
+  return (
     <div>
-        <div className='h-screen w-full fixed overflow-x-hidden'>
-        <div className="">
-            <Image 
-                src={images[currentImageIndex]} 
-                fill 
-                alt="background" 
-                className={`object-cover w-full h-full transition-opacity duration-500 ${imageVisible ? 'opacity-100' : 'opacity-0'}`} 
-            />
-        </div>
-            <div className="absolute inset-0 bg-black opacity-80"></div>
-            <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-5 md:px-12 lg:px-16 mt-6">
-                <h1 className={` md:px-14 lg:px28 text-5xl lg:text-6xl font-extrabold transform transition-all duration-1000 text-white ${raleway.className} ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-                    {taglines[currentIndex].main}
-                </h1>
+      {/* Hero Section */}
+      <div className="relative w-full h-screen overflow-hidden bg-black">
 
-                <p className={`px-5 mt-4 lg:mt-4 text-gray-300 lg:text-lg transform transition-all duration-700 ${subVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
-                    {taglines[currentIndex].subs}
-                </p>
-                <button className='relative mt-4 bg-primary text-white rounded-md lg:text-lg px-4 py-3 font-semibold hover:-translate-y-2 transition duration-500'>
-                    <Link href="https://docs.google.com/forms/d/1NpAzRU3ipYvOvLeSPMMWH9EJ-OIanyVbW8GdW7MRra8/viewform?edit_requested=true">Get an admission</Link>
-                </button>
+        <div className="relative h-full w-full">
+          {slides.map((slide, index) => (
+            <div
+              key={index}
+              className={`absolute inset-0 transition-all duration-700 ease-in-out ${
+                index === currentSlide
+                  ? "opacity-100"
+                  : "opacity-0 pointer-events-none"
+              }`}
+            >
+              {/* Image Background with Overlay */}
+              <div
+                className="absolute inset-0 bg-cover bg-center"
+                style={{ backgroundImage: `url(${slide.image})` }}
+              >
+                <div className="absolute inset-0 bg-black/80"></div>
+              </div>
+
+          
+
+              {/* Content */}
+              <div className="relative h-full flex items-center justify-center px-4">
+                <div className="max-w-5xl mx-auto text-center">
+                  <div className={`overflow-hidden ${roboto.className}`}>
+                    <h1
+                      className={`text-5xl md:text-7xl lg:text-7xl font-bold text-white mb-6 transition-all duration-700 ${
+                        index === currentSlide
+                          ? "translate-y-0 opacity-100"
+                          : "translate-y-full opacity-0"
+                      }`}
+                      style={{
+                        transitionDelay:
+                          index === currentSlide ? "100ms" : "0ms",
+                      }}
+                    >
+                      {slide.title}
+                    </h1>
+                  </div>
+
+                  <div className="overflow-hidden lg:mb-12">
+                    <p
+                      className={` md:text-xl lg:text-2xl text-white/80 max-w-3xl mx-auto transition-all duration-700 mb-5 ${
+                        index === currentSlide
+                          ? "translate-y-0 opacity-100"
+                          : "translate-y-full opacity-0"
+                      }`}
+                      style={{
+                        transitionDelay:
+                          index === currentSlide ? "500ms" : "0ms",
+                      }}
+                    >
+                      {slide.tagline}
+                    </p>
+                  </div>
+
+                  <div
+                    className={`flex flex-col sm:flex-row gap-4 justify-center transition-all duration-700 ${
+                      index === currentSlide
+                        ? "translate-y-0 opacity-100"
+                        : "translate-y-full opacity-0"
+                    }`}
+                    style={{
+                      transitionDelay: index === currentSlide ? "700ms" : "0ms",
+                    }}
+                  >
+                    <Link href="/programs" className="group relative px-8 py-4 bg-white text-[#1687C1] font-semibold rounded-full overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                      Explore Programs
+                    </Link>
+                    <Link href="/about" className="px-8 py-4 bg-transparent border-2 border-white text-white font-semibold rounded-full hover:bg-white hover:text-[#1687C1] transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                      Learn More
+                    </Link>
+                  </div>
+                </div>
+              </div>
             </div>
+          ))}
         </div>
 
+        {/* Navigation Arrows */}
+        <button
+          onClick={prevSlide}
+          className="hidden md:block absolute left-4 md:left-8 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 transition-all duration-300 hover:scale-110 group"
+        >
+          <ChevronLeft className="w-6 h-6 group-hover:-translate-x-1 transition-transform" />
+        </button>
+        <button
+          onClick={nextSlide}
+          className="hidden md:block absolute right-4 md:right-8 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 transition-all duration-300 hover:scale-110 group"
+        >
+          <ChevronRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+        </button>
+
+        {/* Slide Indicators */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3">
+          {slides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => goToSlide(index)}
+              className={`transition-all duration-300 rounded-full ${
+                index === currentSlide
+                  ? "w-12 h-3 bg-white"
+                  : "w-3 h-3 bg-white/40 hover:bg-white/60"
+              }`}
+            />
+          ))}
+        </div>
+
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-20 left-1/2 -translate-x-1/2 animate-bounce">
+          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex items-start justify-center p-2">
+            <div className="w-1 h-2 bg-white/50 rounded-full animate-pulse"></div>
+          </div>
+        </div>
+      </div>
     </div>
-)
-}
+  );
+};
 
-export default Hero
-
-
-
+export default Hero;

@@ -1,11 +1,6 @@
-import { Raleway, Nunito } from "next/font/google";
+import { Roboto } from "next/font/google";
 
-export const nunito = Nunito({
-    variable: "--font-nunito",
-    subsets: ["latin"],
-})
-
-export const raleway = Raleway({
+export const roboto = Roboto({
     variable: "--font-raleway",
     subsets: ["latin"],
 })
