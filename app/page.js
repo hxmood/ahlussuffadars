@@ -144,7 +144,7 @@ const AhlussuffaWebsite = () => {
                 className="relative rounded-3xl overflow-hidden shadow-2xl"
               >
                 <Image 
-                  src="/images/about.jpg" 
+                  src="/images/hero.jpg" 
                   alt="Ahlussuffa Campus"
                   width={400}
                   height={300}

@@ -70,7 +70,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-gray-900 w-full text-white">
       {/* Main Footer Content */}
       <div className="px-4 py-16">
         <div className="max-w-7xl mx-auto">
@@ -80,7 +80,7 @@ const Footer = () => {
             <div className="lg:col-span-1">
               <div className="flex items-center space-x-3 mb-6">
                 <div className=" flex items-center justify-center shadow-lg">
-                  <Image src="/icons/logo-white.png" alt="Ahlussuffa Logo" width={220} height={100} />
+                  <Image src="/icons/logo.png" alt="Ahlussuffa Logo" width={220} height={100} />
                 </div>
               </div>
               <p className="text-gray-300 mb-6 leading-relaxed">

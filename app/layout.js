@@ -19,7 +19,6 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${nunito.className} overflow-x-hidden`}>
         {children}
-        
         <Footer />
       </body>
     </html>

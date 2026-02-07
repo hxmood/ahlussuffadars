@@ -27,7 +27,7 @@ const Navbar = () => {
       <div className="flex items-center space-x-3">
         <div className="flex relative">
           <Link href="/" className='w-full relative'>
-            <Image src="/icons/logo2-white.png" width={55} height={35} alt='Ahlussuffa Logo'/>
+            <Image src="/icons/logo.png" width={55} height={35} alt='Ahlussuffa Logo'/>
           </Link>
         </div>
       </div>
