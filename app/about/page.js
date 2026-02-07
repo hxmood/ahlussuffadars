@@ -185,7 +185,7 @@ const AhlussuffaAboutPage = () => {
                 transition={{ delay: 0.2 }}
                 className="text-lg text-gray-700 leading-relaxed"
               >
-                Ahlussuffa Educational Trust was established in 2008 with a
+                Ahlussuffa Educational Trust was established in 2014 with a
                 visionary mission to create an educational institution that
                 seamlessly integrates traditional Islamic scholarship with
                 modern academic excellence. Our founders recognized the need for
@@ -199,7 +199,7 @@ const AhlussuffaAboutPage = () => {
                 className="text-lg text-gray-700 leading-relaxed"
               >
                 Today, we stand as a beacon of integrated education, serving
-                over 1500 students across multiple disciplines. Our unique
+                over 120 students across multiple disciplines. Our unique
                 approach combines the time-honored Dars system with contemporary
                 educational methodologies, preparing students to excel in both
                 their professional careers and spiritual lives.
