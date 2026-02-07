@@ -80,7 +80,7 @@ const Footer = () => {
             <div className="lg:col-span-1">
               <div className="flex items-center space-x-3 mb-6">
                 <div className=" flex items-center justify-center shadow-lg">
-                  <Image src="/icons/logo.png" alt="Ahlussuffa Logo" width={220} height={100} />
+                  <Image src="/icons/logo.png" alt="Ahlussuffa Logo" width={75} height={75} />
                 </div>
               </div>
               <p className="text-gray-300 mb-6 leading-relaxed">
