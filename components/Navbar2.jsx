@@ -47,10 +47,10 @@ const Navbar2 = () => {
               </Link>
 
               <Link 
-                href="/academics" 
+                href="/programs" 
                 className="font-semibold transition-all duration-300 hover:scale-110 text-gray-900 hover:text-primary"
               >
-                Academics
+                Programs
               </Link>
 
               <Link 
@@ -104,11 +104,11 @@ const Navbar2 = () => {
                 About
               </Link>
               <Link
-                href="/academics"
+                href="/programs"
                 onClick={() => setMobileMenuOpen(false)}
                 className="font-semibold py-2 transition-colors text-gray-900 hover:text-primary"
               >
-                Academics
+                Programs
               </Link>
               <Link
                 href="/admission"

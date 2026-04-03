@@ -1,13 +1,11 @@
-"use client"
+"use client";
 import { roboto } from "@/app/font";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
 const Hero = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
-  const [countsVisible, setCountsVisible] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const slides = [
     {
@@ -18,174 +16,148 @@ const Hero = () => {
     {
       title: "Where Tradition Meets Modern Education",
       tagline: "Integrated education rooted in authentic Islamic scholarship",
-      image: "/images/bg2.png",
+      image: "/images/bg2.jpg",
     },
     {
       title: "Academic Excellence",
       tagline: "Multiple degree pathways for holistic development",
-      image: "/images/bg3.png",
+      image: "/images/bg3.jpg",
     },
     {
       title: "Building Tomorrow's Leaders",
       tagline: "Fostering social responsibility and community impact",
-      image: "/images/bg4.png",
+      image: "/images/bg4.jpg",
     },
   ];
-
-  const nextSlide = () => {
-    if (!isAnimating) {
-      setIsAnimating(true);
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
-      setTimeout(() => setIsAnimating(false), 600);
-    }
-  };
-
-  const prevSlide = () => {
-    if (!isAnimating) {
-      setIsAnimating(true);
-      setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-      setTimeout(() => setIsAnimating(false), 600);
-    }
-  };
-
-  const goToSlide = (index) => {
-    if (!isAnimating && index !== currentSlide) {
-      setIsAnimating(true);
-      setCurrentSlide(index);
-      setTimeout(() => setIsAnimating(false), 600);
-    }
-  };
 
   // Auto-slide effect
   useEffect(() => {
     const timer = setInterval(() => {
-      nextSlide();
-    }, 3500);
+      setCurrentIndex((prev) => (prev + 1) % slides.length);
+    }, 4500);
     return () => clearInterval(timer);
-  }, [currentSlide, isAnimating]); // Added dependencies
+  }, [slides.length]);
 
- 
   return (
-    <div>
-      {/* Hero Section */}
-      <div className="relative w-full h-screen overflow-hidden bg-black">
+    <div className="relative w-full min-h-[100dvh] overflow-hidden bg-black flex text-left group">
+      {/* Background Images with Dark Gradient Overlay */}
+      {slides.map((slide, index) => (
+        <div
+          key={index}
+          className={`absolute inset-0 transition-all duration-[2000ms] ease-in-out ${
+            index === currentIndex ? "opacity-100 scale-100 z-10" : "opacity-0 scale-110 z-0"
+          }`}
+        >
+          <Image
+            src={slide.image}
+            alt={slide.title}
+            fill
+            className="object-cover object-center"
+            priority={index === 0}
+          />
+          {/* Dark gradient mapping to the left side */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/70 to-transparent"></div>
+          {/* Overall subtle dark overlay to ensure text legibility */}
+          <div className="absolute inset-0 bg-black/40"></div>
+        </div>
+      ))}
 
-        <div className="relative h-full w-full">
-          {slides.map((slide, index) => (
-            <div
-              key={index}
-              className={`absolute inset-0 transition-all duration-700 ease-in-out ${
-                index === currentSlide
-                  ? "opacity-100"
-                  : "opacity-0 pointer-events-none"
-              }`}
-            >
-              {/* Image Background with Overlay */}
+      {/* Content */}
+      <div className="relative z-20 w-full px-6 md:px-16 lg:px-40 flex flex-col justify-center">
+        <div className="max-w-4xl">
+          {/* Overlapping Container for Animated Text */}
+          <div className="grid">
+            {slides.map((slide, index) => (
               <div
-                className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: `url(${slide.image})` }}
+                key={`text-${index}`}
+                className={`col-start-1 row-start-1 flex flex-col justify-center transition-opacity duration-1000 ${
+                  index === currentIndex ? "z-10 opacity-100" : "z-0 opacity-0 pointer-events-none"
+                }`}
               >
-                <div className="absolute inset-0 bg-black/80"></div>
-              </div>
+                {/* Accent Line */}
+                <div
+                  className={`w-24 h-1 bg-gradient-to-r from-primary to-secondary mb-6 transition-all duration-1000 ease-out transform ${
+                    index === currentIndex ? "scale-x-100 origin-left opacity-100 translate-x-0" : "scale-x-0 origin-left opacity-0 -translate-x-8"
+                  }`}
+                  style={{ transitionDelay: index === currentIndex ? "300ms" : "0ms" }}
+                ></div>
 
-          
+                {/* Main Tagline: Slide and Fade animation */}
+                <h1
+                  className={`text-4xl md:text-5xl lg:text-6xl xl:text-8xl font-bold text-white mb-6 transition-all duration-1000 ease-out transform tracking-tight ${roboto.className} ${
+                    index === currentIndex ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                  }`}
+                  style={{ transitionDelay: index === currentIndex ? "500ms" : "0ms" }}
+                >
+                  {slide.title}
+                </h1>
 
-              {/* Content */}
-              <div className="relative h-full flex items-center justify-center px-4">
-                <div className="max-w-5xl mx-auto text-center">
-                  <div className={`overflow-hidden ${roboto.className}`}>
-                    <h1
-                      className={`text-5xl md:text-7xl lg:text-7xl font-bold text-white mb-6 transition-all duration-700 ${
-                        index === currentSlide
-                          ? "translate-y-0 opacity-100"
-                          : "translate-y-full opacity-0"
-                      }`}
-                      style={{
-                        transitionDelay:
-                          index === currentSlide ? "100ms" : "0ms",
-                      }}
-                    >
-                      {slide.title}
-                    </h1>
-                  </div>
-
-                  <div className="overflow-hidden lg:mb-12">
-                    <p
-                      className={` md:text-xl lg:text-2xl text-white/80 max-w-3xl mx-auto transition-all duration-700 mb-5 ${
-                        index === currentSlide
-                          ? "translate-y-0 opacity-100"
-                          : "translate-y-full opacity-0"
-                      }`}
-                      style={{
-                        transitionDelay:
-                          index === currentSlide ? "500ms" : "0ms",
-                      }}
-                    >
-                      {slide.tagline}
-                    </p>
-                  </div>
-
-                  <div
-                    className={`flex flex-col sm:flex-row gap-4 justify-center transition-all duration-700 ${
-                      index === currentSlide
+                {/* Sub Tagline: Slide and Fade animation */}
+                <div className="overflow-hidden mb-12">
+                  <p
+                    className={`text-lg md:text-2xl text-white/90 max-w-2xl transition-all duration-1000 ease-out transform font-light ${
+                      index === currentIndex
                         ? "translate-y-0 opacity-100"
-                        : "translate-y-full opacity-0"
+                        : "translate-y-12 opacity-0"
                     }`}
-                    style={{
-                      transitionDelay: index === currentSlide ? "700ms" : "0ms",
-                    }}
+                    style={{ transitionDelay: index === currentIndex ? "700ms" : "0ms" }}
                   >
-                    <Link href="/programs" className="group relative px-8 py-4 bg-white text-[#1687C1] font-semibold rounded-full overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-                      Explore Programs
-                    </Link>
-                    <Link href="/about" className="px-8 py-4 bg-transparent border-2 border-white text-white font-semibold rounded-full hover:bg-white hover:text-[#1687C1] transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-                      Learn More
-                    </Link>
-                  </div>
+                    {slide.tagline}
+                  </p>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
 
-        {/* Navigation Arrows */}
-        <button
-          onClick={prevSlide}
-          className="hidden md:block absolute left-4 md:left-8 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 transition-all duration-300 hover:scale-110 group"
-        >
-          <ChevronLeft className="w-6 h-6 group-hover:-translate-x-1 transition-transform" />
-        </button>
-        <button
-          onClick={nextSlide}
-          className="hidden md:block absolute right-4 md:right-8 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 transition-all duration-300 hover:scale-110 group"
-        >
-          <ChevronRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
-        </button>
-
-        {/* Slide Indicators */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3">
-          {slides.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => goToSlide(index)}
-              className={`transition-all duration-300 rounded-full ${
-                index === currentSlide
-                  ? "w-12 h-3 bg-white"
-                  : "w-3 h-3 bg-white/40 hover:bg-white/60"
-              }`}
-            />
-          ))}
-        </div>
-
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-20 left-1/2 -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex items-start justify-center p-2">
-            <div className="w-1 h-2 bg-white/50 rounded-full animate-pulse"></div>
+          <div className="flex flex-col sm:flex-row gap-5 relative z-30">
+            <Link
+              href="/about"
+              className="px-10 py-5 bg-primary text-white font-bold hover:bg-white transition-colors duration-500 hover:text-primary flex items-center justify-center gap-3 border border-transparent hover:border-white shadow-2xl group/btn"
+            >
+              <span>Explore Ahlussuffa</span>
+              <svg className="w-5 h-5 group-hover/btn:translate-x-2 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="square" strokeLinejoin="miter" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </Link>
+            <Link
+              href="/admission"
+              className="px-10 py-5 bg-transparent border-2 border-white/50 text-white font-bold hover:bg-white/10 hover:border-white transition-all duration-300 backdrop-blur-sm text-center shadow-xl"
+            >
+              Admission Info
+            </Link>
           </div>
         </div>
+      </div>
+
+      {/* Elegant Slide Indicators (Vertical on desktop) */}
+      <div className="hidden lg:flex absolute right-16 top-1/2 -translate-y-1/2 flex-col gap-4 z-30">
+        {slides.map((_, index) => (
+          <button
+            key={`indicator-${index}`}
+            onClick={() => setCurrentIndex(index)}
+            className={`transition-all duration-500 relative flex items-center justify-end w-12 group/nav`}
+            aria-label={`Go to slide ${index + 1}`}
+          >
+            <div className={`h-1 transition-all duration-500 bg-white ${index === currentIndex ? 'w-12 opacity-100' : 'w-4 opacity-30 group-hover/nav:opacity-60 group-hover/nav:w-8'}`}></div>
+          </button>
+        ))}
+      </div>
+      
+      {/* Horizontal style for mobile */}
+      <div className="absolute bottom-8 left-6 md:left-16 lg:hidden flex gap-3 z-30">
+        {slides.map((_, index) => (
+          <button
+            key={`indicator-mob-${index}`}
+            onClick={() => setCurrentIndex(index)}
+            className={`transition-all duration-500 h-1 bg-white ${index === currentIndex ? 'w-12 opacity-100' : 'w-4 opacity-40'}`}
+            aria-label={`Go to slide ${index + 1}`}
+          ></button>
+        ))}
       </div>
     </div>
   );
 };
 
 export default Hero;
+
+

@@ -12,19 +12,19 @@ import {
   Star,
 } from "lucide-react";
 import Image from "next/image";
-import Navbar2 from "@/components/Navbar2";
 import { roboto } from "../font";
 import Scrolltotop from "@/components/Scrolltotop";
 import { motion } from "framer-motion";
+import Navbar from "@/components/Navbar";
+import Link from "next/link";
 
 const AhlussuffaAboutPage = () => {
-  const [activeFaculty, setActiveFaculty] = useState(null);
 
   const facilities = [
     {
       title: "Imam Ghazali Garden",
       description: "Parappram, Pinarayi, Kannur",
-      image: "/images/bg2.png",
+      image: "/images/parappram.png",
     },
     {
       title: "Imam Navavi Garden",
@@ -34,31 +34,12 @@ const AhlussuffaAboutPage = () => {
     {
       title: "Imam Rafi Garden",
       description: "Kannur Town",
-      image: "/images/science-lab.jpg",
+      image: "/images/campbazar.jpg",
     },
     {
       title: "Junior School",
       description: "Punchirimukku, Kadachira, Kannur",
-      image: "/images/student-center.jpg",
-    },
-  ];
-
-  const stats = [
-    { number: "1500+", label: "Students", icon: <Users className="w-8 h-8" /> },
-    {
-      number: "50+",
-      label: "Expert Faculty",
-      icon: <GraduationCap className="w-8 h-8" />,
-    },
-    {
-      number: "15+",
-      label: "Years Experience",
-      icon: <Award className="w-8 h-8" />,
-    },
-    {
-      number: "98%",
-      label: "Success Rate",
-      icon: <Star className="w-8 h-8" />,
+      image: "/images/rootexc.jpg",
     },
   ];
 
@@ -124,7 +105,7 @@ const AhlussuffaAboutPage = () => {
 
   return (
     <div className="w-full bg-white">
-      <Navbar2 />
+      <Navbar/>
 
       {/* About Section with Image */}
       <motion.section 
@@ -146,10 +127,10 @@ const AhlussuffaAboutPage = () => {
               <motion.div 
                 whileHover={{ scale: 1.03 }}
                 transition={{ duration: 0.3 }}
-                className="relative rounded-3xl overflow-hidden shadow-2xl"
+                className="relative overflow-hidden shadow-2xl border-[6px] border-white outline outline-1 outline-gray-200"
               >
                 <Image
-                  src="/images/about.jpeg"
+                  src="/images/bg2.jpg"
                   width={500}
                   height={500}
                   alt="Ahlussuffa Campus"
@@ -240,15 +221,14 @@ const AhlussuffaAboutPage = () => {
             {/* Vision Card */}
             <motion.div
               variants={fadeInUp}
-              whileHover={{ y: -10, scale: 1.02 }}
-              className="group relative bg-white rounded-3xl shadow-xl overflow-hidden transition-all duration-500 border border-gray-100"
+              whileHover={{ y: -5, scale: 1.01 }}
+              className="group relative bg-white overflow-hidden transition-all duration-500 shadow-xl border border-gray-100 flex flex-col"
             >
-              <div className="relative p-7 lg:p-10">
+              <div className="relative p-8 lg:p-12 z-10 w-full flex-grow">
                 <motion.div 
-                  whileHover={{ rotate: 5, scale: 1.1 }}
-                  className="inline-block p-4 rounded-2xl bg-gradient-to-br from-primary to-secondary mb-6 transition-transform duration-300"
+                  className="mb-8 p-4 bg-gray-50 inline-block text-primary"
                 >
-                  <Lightbulb className="w-12 h-12 text-white" />
+                  <Lightbulb className="w-12 h-12" />
                 </motion.div>
                 <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
                   Our Vision
@@ -266,22 +246,21 @@ const AhlussuffaAboutPage = () => {
                   modern world with wisdom and integrity.
                 </p>
               </div>
-              <div className="h-2 bg-gradient-to-r from-primary to-[#16BBFF]"></div>
+              <div className="w-full h-2 bg-gradient-to-r from-primary to-[#16BBFF]"></div>
             </motion.div>
 
             {/* Mission Card */}
             <motion.div
               variants={fadeInUp}
               transition={{ delay: 0.1 }}
-              whileHover={{ y: -10, scale: 1.02 }}
-              className="group relative bg-white rounded-3xl shadow-xl overflow-hidden transition-all duration-500 border border-gray-100"
+              whileHover={{ y: -5, scale: 1.01 }}
+              className="group relative bg-white overflow-hidden transition-all duration-500 shadow-xl border border-gray-100 flex flex-col"
             >
-              <div className="relative p-7 lg:p-10">
+              <div className="relative p-8 lg:p-12 z-10 w-full flex-grow">
                 <motion.div 
-                  whileHover={{ rotate: 5, scale: 1.1 }}
-                  className="inline-block p-4 rounded-2xl bg-gradient-to-br from-primary to-secondary mb-6 transition-transform duration-300"
+                  className="mb-8 p-4 bg-gray-50 inline-block text-secondary"
                 >
-                  <Target className="w-12 h-12 text-white" />
+                  <Target className="w-12 h-12" />
                 </motion.div>
                 <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
                   Our Mission
@@ -298,7 +277,7 @@ const AhlussuffaAboutPage = () => {
                   embody knowledge, wisdom, and service to humanity.
                 </p>
               </div>
-              <div className="h-2 bg-gradient-to-r  from-secondary to-primary"></div>
+              <div className="w-full h-2 bg-gradient-to-r from-secondary to-primary"></div>
             </motion.div>
           </motion.div>
 
@@ -360,22 +339,143 @@ const AhlussuffaAboutPage = () => {
                     y: -10,
                     boxShadow: "0 20px 40px rgba(0,0,0,0.1)"
                   }}
-                  className="bg-white p-6 rounded-2xl shadow-lg transition-all duration-300 border border-gray-100 text-center"
+                  className="bg-white p-8 shadow-xl transition-all duration-300 border-b-4 hover:border-b-primary flex flex-col items-center text-center group"
                 >
                   <motion.div 
                     whileHover={{ rotate: 5, scale: 1.1 }}
-                    className={`inline-block p-3 rounded-xl bg-gradient-to-r ${value.color} text-white mb-4 transition-transform duration-300`}
+                    className={`inline-block p-4 bg-primary text-white mb-6 transition-all duration-300 text-gray-800`}
                   >
-                    {value.icon}
+                    {React.cloneElement(value.icon, { className: "w-8 h-8" })}
                   </motion.div>
-                  <h4 className="text-xl font-bold text-gray-900 mb-2">
+                  <h4 className="text-xl font-bold text-gray-900 mb-3">
                     {value.title}
                   </h4>
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-gray-600 leading-relaxed text-sm">
                     {value.description}
                   </p>
                 </motion.div>
               ))}
+            </motion.div>
+          </div>
+        </div>
+      </motion.section>
+
+      {/* History Timeline */}
+      <motion.section 
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        className="py-20 px-4 bg-white"
+      >
+        <div className="max-w-4xl mx-auto">
+          <motion.div 
+            variants={fadeInUp}
+            className="text-center mb-16"
+          >
+            <h2 className={`text-4xl md:text-5xl font-bold text-gray-900 mb-6 ${roboto.className}`}>
+              Our <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Journey</span>
+            </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
+          </motion.div>
+
+          <div className="relative border-l-2 border-gray-200 ml-3 md:ml-0 md:border-l-0">
+            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gray-200 -translate-x-1/2"></div>
+            
+            {[
+              { year: "2014", location: "Monthal", desc: "The foundation of our institution." },
+              { year: "2015 - 2018", location: "Narikkod", desc: "Growth and expansion of our early programs." },
+              { year: "2018 - 2025", location: "Thathoor", desc: "Establishing a strong legacy of integrated education." },
+              { year: "Present", location: "Expanded Campuses", desc: "Ahlussuffa splits into three dedicated campuses to serve a larger student community." },
+            ].map((item, index) => (
+              <motion.div 
+                key={index}
+                variants={fadeInUp}
+                className={`mb-12 relative flex items-center w-full ${index % 2 === 0 ? 'md:justify-start' : 'md:justify-end'} justify-end`}
+              >
+                <div className="absolute left-[-6px] md:left-1/2 md:-translate-x-1/2 w-3 h-3 bg-primary transform rotate-45 border border-white box-content shadow-sm"></div>
+                <div className={`w-full md:w-[45%] pl-8 md:pl-0 ${index % 2 === 0 ? 'md:pr-12 md:text-right' : 'md:pl-12 text-left'}`}>
+                  <div className="bg-white p-6 shadow-xl border border-gray-100 group hover:border-primary transition-colors duration-300">
+                    <span className="text-primary font-bold tracking-widest text-sm uppercase mb-2 block">{item.year}</span>
+                    <h4 className="text-2xl font-bold text-gray-900 mb-2">{item.location}</h4>
+                    <p className="text-gray-600">{item.desc}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </motion.section>
+
+      {/* Why Ahlussuffa Section */}
+      <motion.section 
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        className="py-20 px-4 bg-gray-50 border-t border-gray-100"
+      >
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Content Side */}
+            <div>
+              <motion.div 
+                variants={fadeInUp}
+                className="mb-10 text-center lg:text-left"
+              >
+                <h2 className={`text-4xl md:text-5xl font-bold text-gray-900 mb-6 ${roboto.className}`}>
+                  Why <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Ahlussuffa?</span>
+                </h2>
+                <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto lg:mx-0"></div>
+              </motion.div>
+
+              <div className="space-y-6">
+                {[
+                  {
+                    title: "Holistic Approach",
+                    desc: "We seamlessly blend traditional Islamic scholarship with modern academic excellence.",
+                    icon: <Target className="w-7 h-7" />
+                  },
+                  {
+                    title: "Expert Faculty",
+                    desc: "Learn from distinguished scholars and experienced educators dedicated to your success.",
+                    icon: <Users className="w-7 h-7" />
+                  },
+                  {
+                    title: "Spiritual Growth",
+                    desc: "An environment intentionally designed to nurture moral integrity and spiritual well-being.",
+                    icon: <Heart className="w-7 h-7" />
+                  }
+                ].map((reason, index) => (
+                  <motion.div 
+                    key={index}
+                    variants={fadeInUp}
+                    className="flex bg-white p-6 md:p-8 shadow-md border-l-4 border-primary hover:bg-primary group transition-all duration-300 items-start gap-5"
+                  >
+                    <div className="text-primary group-hover:text-white transition-colors duration-300 mt-1 flex-shrink-0">
+                      {reason.icon}
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-white transition-colors duration-300">{reason.title}</h4>
+                      <p className="text-gray-600 group-hover:text-gray-100 transition-colors duration-300 leading-relaxed text-base">
+                        {reason.desc}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Image Side */}
+            <motion.div 
+              variants={fadeInUp}
+              className="relative h-full min-h-[400px] lg:min-h-[600px] mt-10 lg:mt-0"
+            >
+              <div className="absolute inset-0 bg-secondary/10 backdrop-blur-md translate-x-4 -translate-y-4 lg:translate-x-6 lg:-translate-y-6 z-0 hidden md:block"></div>
+              <Image 
+                src="/images/kithab2.jpg" 
+                alt="Why Ahlussuffa" 
+                fill
+                className="object-cover relative z-10 shadow-2xl border-4 border-white"
+              />
             </motion.div>
           </div>
         </div>
@@ -387,7 +487,7 @@ const AhlussuffaAboutPage = () => {
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="mb-20 max-w-7xl mx-auto px-4"
+        className="my-20 max-w-7xl mx-auto px-4"
       >
         <motion.h3 
           initial={{ opacity: 0, y: 30 }}
@@ -417,7 +517,7 @@ const AhlussuffaAboutPage = () => {
                 scale: 1.03,
                 boxShadow: "0 25px 50px rgba(0,0,0,0.15)"
               }}
-              className="group relative bg-white rounded-2xl shadow-lg transition-all duration-500 overflow-hidden"
+              className="group relative bg-white shadow-xl transition-all duration-500 overflow-hidden"
             >
               <div className="relative h-48">
                 <Image
@@ -446,9 +546,16 @@ const AhlussuffaAboutPage = () => {
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="py-20 px-4 bg-gradient-to-br from-primary via-[#16BBFF] to-secondary"
+        className="py-24 px-4 relative overflow-hidden"
       >
-        <div className="max-w-4xl mx-auto text-center">
+        <div 
+          className="absolute inset-0 z-0 bg-fixed bg-cover bg-center"
+          style={{ backgroundImage: "url('/images/hero.jpg')" }}
+        >
+          <div className="absolute inset-0 bg-black/70"></div>
+          <div className="absolute inset-0 bg-primary/30 mix-blend-multiply"></div>
+        </div>
+        <div className="max-w-4xl mx-auto text-center relative z-10 w-full">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -475,20 +582,24 @@ const AhlussuffaAboutPage = () => {
             viewport={{ once: true }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <motion.button 
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-10 py-4 bg-white text-primary font-bold rounded-full transition-all duration-300 shadow-xl hover:shadow-2xl"
-            >
-              Apply for Admission
-            </motion.button>
-            <motion.button 
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-10 py-4 bg-transparent border-2 border-white text-white font-bold rounded-full hover:bg-white hover:text-primary transition-all duration-300"
-            >
-              Contact Us
-            </motion.button>
+            <Link href="/admission" className="w-full sm:w-auto">
+              <motion.button 
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="w-full px-10 py-4 bg-white text-primary font-bold transition-all duration-300 shadow-xl hover:shadow-2xl"
+              >
+                Apply for Admission
+              </motion.button>
+            </Link>
+            <Link href="/contact" className="w-full sm:w-auto">
+              <motion.button 
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="w-full px-10 py-4 bg-transparent border-2 border-white text-white font-bold hover:bg-white hover:text-primary transition-all duration-300"
+              >
+                Contact Us
+              </motion.button>
+            </Link>
           </motion.div>
         </div>
       </motion.section>
