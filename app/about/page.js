@@ -37,7 +37,7 @@ const AhlussuffaAboutPage = () => {
       image: "/images/campbazar.jpg",
     },
     {
-      title: "Junior School",
+      title: "RootExc (Junior School)",
       description: "Punchirimukku, Kadachira, Kannur",
       image: "/images/rootexc.jpg",
     },

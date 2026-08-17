@@ -367,7 +367,7 @@ const AhlussuffaWebsite = () => {
             variants={staggerContainer}
             className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
           >
-            {/* Junior School */}
+            {/* RootExc (Junior School) */}
             <motion.div
               variants={fadeInUp}
               whileHover={{ scale: 1.02, x: 5 }}
@@ -376,7 +376,7 @@ const AhlussuffaWebsite = () => {
               <div className="bg-white w-14 h-14 shadow-sm flex items-center justify-center flex-shrink-0">
                 <BookOpen className="w-7 h-7 text-[#d97706]" />
               </div>
-              <h3 className="text-white font-medium md:font-semibold text-lg md:text-xl">Junior School</h3>
+              <h3 className="text-white font-medium md:font-semibold text-lg md:text-xl">RootExc (Junior School)</h3>
             </motion.div>
 
             {/* Senior School */}
