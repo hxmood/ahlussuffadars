@@ -171,7 +171,7 @@ const AhlussuffaWebsite = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
-        className="py-20 mt-2 md:mt-8 px-4 bg-white"
+        className="py-20 mt-2 md:mt-8 px-4 bg-white overflow-hidden"
       >
         <div className="max-w-7xl mx-auto">
           <motion.div 
@@ -202,14 +202,14 @@ const AhlussuffaWebsite = () => {
                 initial={{ opacity: 0, scale: 0.8, x: 20 }}
                 whileInView={{ opacity: 1, scale: 1, x: 0 }}
                 transition={{ delay: 0.5, duration: 0.5 }}
-                whileHover={{ scale: 1.1 }}
-                className="absolute -bottom-6 -right-6 bg-white shadow-2xl p-5 transform transition-all duration-300 border border-gray-100"
+                whileHover={{ scale: 1.05 }}
+                className="absolute -bottom-6 right-0 sm:-right-6 bg-white shadow-2xl p-4 sm:p-5 transform transition-all duration-300 border border-gray-100 max-w-[180px] sm:max-w-none"
               >
                 <div className="text-center">
-                  <div className="text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-2">
-                    12+
+                  <div className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-1 sm:mb-2">
+                    13+
                   </div>
-                  <div className="text-sm font-semibold text-gray-700">Years of Excellence</div>
+                  <div className="text-xs sm:text-sm font-semibold text-gray-700">Years of Excellence</div>
                 </div>
               </motion.div>
 
@@ -247,17 +247,25 @@ const AhlussuffaWebsite = () => {
                 ></motion.div>
               </div>
 
-              <motion.p 
+              <motion.div 
                 variants={fadeInUp}
                 transition={{ delay: 0.2 }}
-                className="text-lg text-gray-700 leading-relaxed"
+                className="space-y-4 text-base sm:text-lg text-gray-700 leading-relaxed"
               >
-                With the blessings of Ustad Sultanul Ulama Kanthapuram and Ustad Dr. MAH Azhari, and under the leadership of 
-                Ustad Arshad Nurani Kamil Saqafi, our institution has been providing holistic Islamic and modern education 
-                for over thirteen years. After seven years at Shuhada Makham in Thathoor, we are now continuing our mission at 
-                Parapram Juma Masjid, Masjidu Swahaba and CampBazar Juma Masjid, Kannur. Committed to nurturing both spiritual and intellectual growth, 
-                Ahlussuffa remains a beacon of knowledge and guidance for the next generation.
-              </motion.p>
+                <p>
+                  With the blessings of Ustad Sultanul Ulama Kanthapuram and Ustad Dr. MAH Azhari, and under the leadership of 
+                  Ustad Arshad Nurani Kamil Saqafi, our institution has been providing holistic Islamic and modern education 
+                  for over thirteen years.
+                </p>
+                <p>
+                  After seven years at Shuhada Makham in Thathoor, we are now continuing our mission at 
+                  Parapram Juma Masjid, Masjidu Swahaba and CampBazar Juma Masjid, Kannur.
+                </p>
+                <p>
+                  Committed to nurturing both spiritual and intellectual growth, 
+                  Ahlussuffa remains a beacon of knowledge and guidance for the next generation.
+                </p>
+              </motion.div>
 
               <motion.div 
                 variants={fadeInUp}
