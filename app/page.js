@@ -203,13 +203,13 @@ const AhlussuffaWebsite = () => {
                 whileInView={{ opacity: 1, scale: 1, x: 0 }}
                 transition={{ delay: 0.5, duration: 0.5 }}
                 whileHover={{ scale: 1.05 }}
-                className="absolute -bottom-6 right-0 sm:-right-6 bg-white shadow-2xl p-4 sm:p-5 transform transition-all duration-300 border border-gray-100 max-w-[180px] sm:max-w-none"
+                className="hidden sm:block absolute -bottom-6 -right-6 bg-white shadow-2xl p-5 transform transition-all duration-300 border border-gray-100"
               >
                 <div className="text-center">
-                  <div className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-1 sm:mb-2">
+                  <div className="text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-2">
                     13+
                   </div>
-                  <div className="text-xs sm:text-sm font-semibold text-gray-700">Years of Excellence</div>
+                  <div className="text-sm font-semibold text-gray-700">Years of Excellence</div>
                 </div>
               </motion.div>
 
