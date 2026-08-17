@@ -15,10 +15,10 @@ const fadeInUp = {
 const programs = [
   {
     id: "junior",
-    title: "Junior School",
+    title: "RootExc ",
     icon: <BookOpen className="w-8 h-8" />,
     image: "/images/spiritual.jpg",
-    description: "Our Junior School lays the essential foundation for young minds. We focus on nurturing a love for learning while introducing the fundamental tenets of Islamic education alongside a robust modern curriculum.",
+    description: "Our RootExc (Junior School) program lays the essential foundation for young minds. We focus on nurturing a love for learning while introducing the fundamental tenets of Islamic education alongside a robust modern curriculum.",
     subjects: [
       "Foundations of Islamic Principles",
       "Basic Arabic Language & Vocabulary",
