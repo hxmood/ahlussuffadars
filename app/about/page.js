@@ -164,7 +164,7 @@ const AhlussuffaAboutPage = () => {
               <motion.p 
                 variants={fadeInUp}
                 transition={{ delay: 0.2 }}
-                className="text-lg text-gray-700 leading-relaxed"
+                className="text-base sm:text-lg text-gray-700 leading-relaxed"
               >
                 Ahlussuffa Educational Trust was established in 2014 with a
                 visionary mission to create an educational institution that
@@ -177,7 +177,7 @@ const AhlussuffaAboutPage = () => {
               <motion.p 
                 variants={fadeInUp}
                 transition={{ delay: 0.3 }}
-                className="text-lg text-gray-700 leading-relaxed"
+                className="text-base sm:text-lg text-gray-700 leading-relaxed"
               >
                 Today, we stand as a beacon of integrated education, serving
                 over 120 students across multiple disciplines. Our unique
